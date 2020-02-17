@@ -24,7 +24,7 @@ class Product extends Component{
     render(){
         return(
             <div className='main'>
-                {['hadi', 'semilu', 'dulu'].map((data, index)=>(
+                {this.state.products.map((data, index)=>(
                     <Box product={data} key={index}/>
                 ))}
             </div>

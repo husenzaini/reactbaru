@@ -9,9 +9,9 @@ class Box extends Component{
     render(){
         return(
             <div className='box'>
-                <img className='product-image' src="https://1.bp.blogspot.com/-v7t5jFmXtSo/VgR7yxxiM8I/AAAAAAAACN4/m0_RIIVuWL8/s1600/Resep%2BCara%2BMembuat%2BPuding%2BCake%2BCoklat%2Byang%2BNikmat.jpg"/>
-                <p className='boxmini'>nama</p>
-                <b className='boxharga'>harga</b>
+                <img className='product-image' alt={this.props.product.name} src={this.props.product.image}/>
+        <p className='boxmini'>{this.props.product.name}</p>
+        <b className='boxharga'>{this.props.product.price}</b>
             </div>
         )
     }
