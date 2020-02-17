@@ -18,7 +18,7 @@ class Product extends Component{
         .catch(err => {
           console.log(err)
       })      
-   
+    }
     render(){
         return(
             <div className='main'>
