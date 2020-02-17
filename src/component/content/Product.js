@@ -22,11 +22,12 @@ class Product extends Component{
     render(){
         return(
             <div className='main'>
-                <div className='box'>
-                    
-                    <p className='boxmini'>gerrr</p>
-                    <b className='boxharga'>Rp 10.000</b>
+                {this.state.products.map((data, index)=>(
+                    <div className='box'>
+                    <p className='boxmini'>{data.name}</p>
+                    <b className='boxharga'>{data.price}</b>
                 </div>
+                ))}
             </div>
         )
     }
