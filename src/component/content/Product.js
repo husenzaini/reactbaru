@@ -1,6 +1,12 @@
 import React, {Component} from 'react';
 import './Product.css'
 class Product extends Component{
+    constructor(props){
+        super(props)
+        this.state = {
+            products: []
+        }
+    }
     render(){
         return(
             <div className='main'>
