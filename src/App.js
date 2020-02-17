@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
 import './App.css';
 import logo from './clipboard.svg'
 import forky from './fork.svg'
 import addy from './add.svg'
 import burger from './burger.svg'
+import { searchProduct } from '../src/redux/actions'
 
 
 
@@ -14,7 +16,7 @@ class App extends Component {
                <nav className='navbar'>
                    <div className='navbar_logo'>Akal Buku</div>
                    <li>
-                       <input type='text' name='' className='search' placeholder='cari apa..'></input>
+                       <input type='text' name='' className='search' placeholder='cari apa..' onChange={this.props.searchProduct}></input>
                      <img src={burger} className= 'burger' alt='menu'/>
                    </li>
                 </nav>
@@ -41,5 +43,11 @@ class App extends Component {
         )
     }
 }
-
-export default App
+const mapDispatchToProps = (dispatch) => {
+    return {
+      searchProduct: q => {
+        dispatch(searchProduct(q.target.value))
+      }
+    }
+  }
+export default connect(null, mapDispatchToProps)(App)
