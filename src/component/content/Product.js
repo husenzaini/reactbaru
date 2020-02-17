@@ -57,7 +57,8 @@ class Product extends Component{
 }
 
 const mapStateToProps = state => ({
-    query: state.products.query
+    query: state.products.query,
+    isSearching: state.products.isSearching
   })
 
 const mapDispatchToProps = (dispatch) => {
