@@ -1,8 +1,9 @@
-import { ADD_TO_CART, SEARCH_PRODUCT } from '../actionTypes'
+import { ADD_TO_CART, SEARCH_PRODUCT, RESET_IS_SEARCH } from '../actionTypes'
 
 const initialState = {
   query: '',
-  addedItems: []
+  addedItems: [],
+  isSearching: false
 }
 
 export default function (state = initialState, action) {
@@ -36,6 +37,11 @@ export default function (state = initialState, action) {
       ...state,
       isSearching: true,
       query: query
+    }
+  } else if (action.type === RESET_IS_SEARCH) {
+    return {
+      ...state,
+      isSearching: false
     }
   }
   return state

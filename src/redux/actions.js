@@ -1,4 +1,4 @@
-import { ADD_TO_CART, SEARCH_PRODUCT } from './actionTypes'
+import { ADD_TO_CART, SEARCH_PRODUCT, RESET_IS_SEARCH } from './actionTypes'
 
 export const addToCart = (id) => ({
     type: ADD_TO_CART,
@@ -12,4 +12,8 @@ export const searchProduct = (query) => ({
   payload: {
     query
   }
+}
+)
+export const resetIsSearch = () => ({
+  type: RESET_IS_SEARCH
 })

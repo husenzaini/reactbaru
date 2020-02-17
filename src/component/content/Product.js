@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 import axios from 'axios'
 import './Product.css'
 import Box from './Box'
+import { resetIsSearch } from '../../redux/actions'
+
 
 class Product extends Component{
     constructor(props){
@@ -24,7 +26,6 @@ class Product extends Component{
     }
 
     searchProducts(){
-        console.log("kepanggil coyy")
         axios.get('http://localhost:4002/api/v1/product', {
             params: {
               name: this.props.query
@@ -34,14 +35,15 @@ class Product extends Component{
             this.setState({
                 products:res.data.result.result
             })
+
+            this.props.resetIsSearch()
       })
         .catch(err => {
           console.log(err)
       })
     }
     render(){
-        console.log("this props ", this.props)
-        if(this.props.query){
+        if(this.props.query && this.props.isSearching){
             this.searchProducts()
         }
         return(
@@ -58,4 +60,12 @@ const mapStateToProps = state => ({
     query: state.products.query
   })
 
-export default connect(mapStateToProps)(Product)
+const mapDispatchToProps = (dispatch) => {
+    return {
+      searchProduct: () => {
+        dispatch(resetIsSearch())
+      }
+    }
+  }
+
+export default connect(mapStateToProps, mapDispatchToProps)(Product)
