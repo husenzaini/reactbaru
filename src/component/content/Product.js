@@ -7,7 +7,7 @@ class Product extends Component{
                 <div className='box'>
                     
                     <p className='boxmini'>gerrr</p>
-                    <p className='boxharga'>Rp 10.000</p>
+                    <b className='boxharga'>Rp 10.000</b>
                 </div>
             </div>
         )
