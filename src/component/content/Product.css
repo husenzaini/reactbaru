@@ -1,0 +1,43 @@
+.main{
+    background: center;
+    background-color: rgb(198, 217, 219);
+    width: 61.3%;
+    height: 85vh;
+    margin-top: 100px;
+    margin-left: 109px;
+    padding: 10px;
+}
+
+.box{
+    position: absolute;
+    width: 250px;
+    height: 200px;
+    background-color: rgb(226, 209, 178);
+    border-radius: 10px 10px 0px 0px;
+    padding: 20px;
+}
+
+.boxmini{
+
+    position: absolute;
+    width: 146px;
+    height: 100px;
+    font-family: Airbnb Cereal App;
+    font-size: 20px;
+    line-height: 33px;
+    top: 190px;
+    color: #000000;
+    text-align: left;
+}
+
+.boxharga{
+    position: absolute;
+    width: 146px;
+    height: 100px;
+    font-family: Airbnb Cereal App;
+    font-size: 20px;
+    line-height: 33px;
+    top: 210px;
+    color: #000000;
+    text-align: left;
+}

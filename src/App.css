@@ -1,38 +1,109 @@
-.App {
-  text-align: center;
+.navbar{
+    position: absolute;
+    width: 890px;
+    height: 100px;
+    left: 0px;
+    top: 6px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.burger{
+    position: absolute;
+    width: 35.35px;
+    height: 35px;
+    left: 31.31px;
+    top: 34px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+
+.navbar_logo{
+
+    position: absolute;
+    width: 278.78px;
+    height: 31px;
+    left: 404.03px;
+    top: 34px;
+
+    font-family: Airbnb Cereal App;
+    font-size: 30px;
+    line-height: 39px;
+
+    color: #000000;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.navbar_cart{
+
+    position: absolute;
+    width: 365px;
+    height: 106px;
+    left: 889px;
+    top: 0px;
+
+    background: #FFFFFF;
+    box-shadow: 0px 4px 1px rgba(0, 0, 0, 0.25);
 }
 
-.App-link {
-  color: #61dafb;
+.navbar_keranjang{
+    position: absolute;
+    width: 125px;
+    height: 50px;
+    left: 145px;
+    top: 40px;
+
+    font-family: Airbnb Cereal App;
+    font-size: 25px;
+    line-height: 33px;
+
+    color: #000000;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.search{
+    width: 200px;
+    padding: 5px;
+    -webkit-border-radius:20px;
+    -moz-border-radius:20px;
+    border-radius: 20px;
+    border:none;
+    font-size: 18px;
+    text-align:left;
+    color: rgb(129, 133, 133);
+    background-color: rgb(198, 167, 228);
+    margin-right: 100px;
+    display: inline-block;
+    position: absolute;
+    top: 30px;
+    left: 650px;
+}
+
+*{
+    margin:0px;
+    padding:0px;
+    font-family:sans-serif;
+}
+
+#sidebar{
+    position: absolute;
+    width: 109px;
+    height: 520px;
+    left: 0px;
+    top: 106px;
+    text-align: center;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+    display: flex;
+}
+
+#sidebar ul li{
+    color: rgb(245, 65, 41);
+    list-style: none;
+    padding:15px 10px;
+    border-bottom: 1px solid rgba(100,100,100,0.3);
+    width: 45px;
+    text-align: center;
+    margin-left: 10px;
+}
+
+#sidebar ul{
+    margin-left: 15px;
 }
