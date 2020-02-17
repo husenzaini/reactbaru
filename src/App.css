@@ -85,7 +85,7 @@
 #sidebar{
     position: absolute;
     width: 109px;
-    height: 520px;
+    height: 100%;
     left: 0px;
     top: 106px;
     text-align: center;
