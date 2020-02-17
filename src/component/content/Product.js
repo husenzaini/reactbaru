@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
-import './Product.css'
 import axios from 'axios'
+import './Product.css'
+import Box from './Box'
+
 class Product extends Component{
     constructor(props){
         super(props)
@@ -22,11 +24,8 @@ class Product extends Component{
     render(){
         return(
             <div className='main'>
-                {this.state.products.map((data, index)=>(
-                    <div className='box' key={index}>
-                    <p className='boxmini'>{data.name}</p>
-                    {/* <b className='boxharga'>{data.price}</b> */}
-                </div>
+                {['hadi', 'semilu', 'dulu'].map((data, index)=>(
+                    <Box product={data} key={index}/>
                 ))}
             </div>
         )
