@@ -20,7 +20,7 @@ class Login extends Component{
                 </div>
 
                 <input className='btn' type='button' name='' value='Sign in'></input>
-            </div>
+                </div>
             </div>
         )
     }
