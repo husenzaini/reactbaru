@@ -6,7 +6,7 @@ import forky from './fork.svg'
 import addy from './add.svg'
 import burger from './burger.svg'
 import { searchProduct } from '../src/redux/actions'
-
+import Product from './component/content/Product'
 
 
 class App extends Component {
@@ -36,7 +36,7 @@ class App extends Component {
                     </ul>
                 </div>
                
-                
+                <Product />
             </div>
         
             
