@@ -5,7 +5,7 @@ import logo from './clipboard.svg'
 import forky from './fork.svg'
 import addy from './add.svg'
 import burger from './burger.svg'
-import { searchProduct } from '../src/redux/actions'
+import { searchProduct, editQty } from '../src/redux/actions'
 import Product from './component/content/Product'
 import { Badge, Button } from 'reactstrap'
 
@@ -53,8 +53,10 @@ class App extends Component {
                     {this.props.addedItems.map((element, index) => (
                         <div className="added-products" key={index}>
                             <img alt="product-item" src={element.image} style={{ height: '50px', width: '50px'}}/>
-                            <Button color="success" id='plus-cart'>+</Button>
-                            <Button color="success" id='minus-cart'>-</Button>
+                            <Button color="success" id='plus-cart' onClick={() => this.props.editQty(element.id, true)}>+</Button>
+                            {element.quantity}
+                            <Button color="success" id='minus-cart' onClick={() => this.props.editQty(element.id, false)}>-</Button>
+                            {element.quantity * element.price}
                         </div>
                     ))}
                     <p>Total : Rp. {this.props.total}</p>
@@ -74,6 +76,9 @@ const mapDispatchToProps = (dispatch) => {
     return {
       searchProduct: q => {
         dispatch(searchProduct(q.target.value))
+      },
+      editQty: (id, isIncrement)=> {
+        dispatch(editQty(id, isIncrement))
       }
     }
   }

@@ -17,7 +17,7 @@ class Product extends Component{
         }
     }
     componentDidMount(){
-        axios.get('http://localhost:4002/api/v1/product')
+        axios.get('http://54.164.86.147:8001/api/v1/product')
         .then(res => {
             this.setState({
                 products:res.data.result.result

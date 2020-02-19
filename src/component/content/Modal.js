@@ -19,7 +19,6 @@ const ModalExample = (props) => {
 useEffect(()=>{
     Axios.get('http://54.164.86.147:8001/api/v1/category')
     .then(res => {
-        console.log(res)
         setCategories(res.data.result
         )
   })
@@ -38,14 +37,13 @@ const handleChange = props => event => {
   setValues({...values, [props]: event.target.value});
 };
 const patchProduct = () => {
-  Axios.put('http://localhost:4002/api/v1/product/' +product.id, values,{
+  Axios.put('http://54.164.86.147:8001/api/v1/product/' +product.id, values,{
     headers:{
       "Access-Control-Allow-Origin": "PUT"
     }
   })
   .then(res =>{
     setIsRefresh()
-    console.log(res)
   })
   .catch(err=>{
     console.log(err)
@@ -55,7 +53,6 @@ const deleteProduct =()=>{
   Axios.delete('http://54.164.86.147:8001/api/v1/product/' + product.id)
   .then(res=>{
     setIsRefresh()
-    console.log(res)
   })
   .catch(err=>{
     console.log(err)
