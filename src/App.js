@@ -6,7 +6,7 @@ import forky from './fork.svg'
 import addy from './add.svg'
 import burger from './burger.svg'
 import { searchProduct } from '../src/redux/actions'
-import { Badge } from 'reactstrap'
+import { Badge, Button } from 'reactstrap'
 
 
 class App extends Component {
@@ -44,12 +44,18 @@ class App extends Component {
                         cart <Badge color="info" pill>{this.props.addedItems.length}</Badge>
                     </div>
                 </nav>
+                <div className='cart-content'>
+                    {this.props.addedItems.map((element, index) => (
+                        <div className="added-products" key={index}>
+                            <img alt="product-item" src={element.image} style={{ height: '50px', width: '50px'}}/>
+                            <Button color="success" id='plus-cart'>+</Button>
+                            <Button color="success" id='minus-cart'>-</Button>
+                        </div>
+                    ))}
+                    <p>Total : Rp. {this.props.total}</p>
                 </div>
-               
-                
-            </div>
-        
-            
+                </div>
+            </div>   
         )
     }
 }

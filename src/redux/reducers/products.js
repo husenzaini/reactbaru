@@ -21,8 +21,8 @@ export default function (state = initialState, action) {
       const newAddedItems = state.addedItems.filter(item => item.id !== existedItem.id)
       return {
         ...state,
-        addedItems: newAddedItems
-        // total: state.total + addedItem.price
+        addedItems: newAddedItems,
+        total: state.total - addedItem.price
       }
     } else {
       addedItem.quantity = 1
