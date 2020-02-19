@@ -56,7 +56,7 @@ class App extends Component {
                             <Button color="success" id='minus-cart' onClick={() => this.props.editQty(element.id, false)}>-</Button>
                             {element.quantity}
                             <Button color="success" id='plus-cart' onClick={() => this.props.editQty(element.id, true)}>+</Button>
-                            {element.quantity * element.price}
+                            Rp. {element.quantity * element.price}
                         </div>
                     ))}
                     <p>Total : Rp. {this.props.total}</p>
