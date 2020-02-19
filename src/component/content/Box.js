@@ -2,16 +2,26 @@ import React, {Component} from 'react';
 import './Box.css'
 
 class Box extends Component{
-    // constructor(props){
-    //     super(props)
-    // }
+    constructor(props){
+        super(props)
+        this.state = {
+            isClicked: false
+        }
+    }
+
+    handleClickBox(){
+        this.setState({
+            isClicked: !this.state.isClicked
+        })
+    }
    
     render(){
         return(
-            <div className='box'>
-                <img className='product-image' alt={this.props.product.name} src={this.props.product.image}/>
-        <p className='boxmini'>{this.props.product.name}</p>
-        <b className='boxharga'>{this.props.product.price}</b>
+            <div className='box' onClick={() => this.handleClickBox()} style={{ opacity: this.state.isClicked ? '50%' : '100%'}}>
+                <img className='image-product' alt={this.props.product.name} src={this.props.product.image}/>
+                {/* <img alt="check icon" src="https://image.flaticon.com/icons/svg/1828/1828640.svg" style={{ height: '50px', width: '50px'}}/> */}
+                <p className='boxmini'>{this.props.product.name}</p>
+                <b className='boxharga'>{this.props.product.price}</b>
             </div>
         )
     }

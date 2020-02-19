@@ -10,15 +10,22 @@ class Product extends Component{
     constructor(props){
         super(props)
         this.state = {
-            products: []
+            products: [{
+                name: 'Cake',
+                price: 90000,
+                image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSoROYYepOvjQaUMBryoZ26DNoSirOzy-jFnP08QcYjWAldkRsB'
+            }]
         }
     }
     componentDidMount(){
-        axios.get('http://localhost:4002/api/v1/product')
+        axios.get('http://54.164.86.147:8001/api/v1/product')
         .then(res => {
             this.setState({
                 products:res.data.result.result
             })
+
+            this.props.resetIsSearch()
+
       })
         .catch(err => {
           console.log(err)
@@ -26,7 +33,7 @@ class Product extends Component{
     }
 
     searchProducts(){
-        axios.get('http://localhost:4002/api/v1/product', {
+        axios.get('http://54.164.86.147:8001/api/v1/product', {
             params: {
               name: this.props.query
             }
@@ -45,6 +52,8 @@ class Product extends Component{
     render(){
         if(this.props.query && this.props.isSearching){
             this.searchProducts()
+        } else if(this.props.query === "" && this.props.isSearching){
+            this.componentDidMount()
         }
         return(
             <div className='main'>
