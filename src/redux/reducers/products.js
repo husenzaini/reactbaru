@@ -22,7 +22,7 @@ export default function (state = initialState, action) {
       return {
         ...state,
         addedItems: newAddedItems,
-        total: state.total - addedItem.price
+        total: state.total - (addedItem.price * addedItem.quantity)
       }
     } else {
       addedItem.quantity = 1
