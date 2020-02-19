@@ -10,11 +10,7 @@ class Product extends Component{
     constructor(props){
         super(props)
         this.state = {
-            products: [{
-                name: 'Cake',
-                price: 90000,
-                image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSoROYYepOvjQaUMBryoZ26DNoSirOzy-jFnP08QcYjWAldkRsB'
-            }]
+            products: []
         }
     }
     componentDidMount(){

@@ -12,18 +12,21 @@ import { searchProduct } from '../src/redux/actions'
 class App extends Component {
     render(){
         return(
-            <div>
+            <div className='main-app'>
                <nav className='navbar'>
-                   <div className='navbar_logo'>Akal Buku</div>
-                   <li>
+                   <ul>
+                    <li>
+                      <img src={burger} className= 'burger' alt='menu'/>
+                    </li>
+                    <li>
+                        <div className='navbar_logo'>Akal Buku</div> 
+                    </li>
+                    <li>
                        <input type='text' name='' className='search' placeholder='cari apa..' onChange={this.props.searchProduct}></input>
-                     <img src={burger} className= 'burger' alt='menu'/>
-                   </li>
+                    </li>
+                   </ul>
                 </nav>
-               <nav className='navbar_cart'>
-                   <div className='navbar_keranjang'>cart</div>
-               </nav>
-                <div id='sidebar'>
+                <div id='left-sidebar'>
                     <div className='toggle-btn'>
                         <span></span>
                         <span></span>
@@ -34,6 +37,11 @@ class App extends Component {
                         <li><img src={forky} alt='menuu'/></li>
                         <li><img src={addy} alt='menuu'/></li>
                     </ul>
+                </div>
+                <div id='right-sidebar'>
+                <nav className='navbar_cart'>
+                    <div className='navbar_keranjang'>cart</div>
+                </nav>
                 </div>
                
                 

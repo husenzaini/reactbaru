@@ -21,7 +21,7 @@ class Box extends Component{
                 <img className='image-product' alt={this.props.product.name} src={this.props.product.image}/>
                 {/* <img alt="check icon" src="https://image.flaticon.com/icons/svg/1828/1828640.svg" style={{ height: '50px', width: '50px'}}/> */}
                 <p className='boxmini'>{this.props.product.name}</p>
-                <b className='boxharga'>{this.props.product.price}</b>
+                <b className='boxharga'>Rp. {this.props.product.price}</b>
             </div>
         )
     }
