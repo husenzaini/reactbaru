@@ -22,8 +22,8 @@ class Box extends Component{
     render(){
         return(
         
-            <div className='box' onClick={() => this.handleClickBox()} style={{ opacity: this.state.isClicked ? '50%' : '100%'}}>
-                <img className='image-product' alt={this.props.product.name} src={this.props.product.image}/>
+            <div className='box' style={{ opacity: this.state.isClicked ? '50%' : '100%'}}>
+                <img className='image-product' alt={this.props.product.name} src={this.props.product.image} onClick={() => this.handleClickBox()}/>
                 {/* <img alt="check icon" src="https://image.flaticon.com/icons/svg/1828/1828640.svg" style={{ height: '50px', width: '50px'}}/> */}
                 <p className='boxmini'>{this.props.product.name}</p>
                 <b className='boxharga'>Rp. {this.props.product.price}</b>
