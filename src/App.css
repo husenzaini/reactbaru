@@ -84,7 +84,7 @@
 #left-sidebar{
     position: absolute;
     width: 109px;
-    height: 1205px;
+    height: 1550px;
     left: 0px;
     text-align: center;
     background: #FFFFFF;
@@ -109,7 +109,7 @@
 #right-sidebar{
     position: absolute;
     width: 350px;
-    height: 1205px;
+    height: 1550px;
     top: 0;
     right: 0px;
     text-align: center;
