@@ -3,9 +3,11 @@ import { connect } from 'react-redux'
 import axios from 'axios'
 import './Product.css'
 // import Box from './Box'
-import { resetIsSearch } from '../../redux/actions'
 import Modal from './Modal'
 // import ModalDelet from './ModalDelet'
+// import Box from './Box'
+import { resetIsSearch, setProducts } from '../../redux/actions'
+
 
 class Product extends Component{
     constructor(props){
@@ -15,11 +17,18 @@ class Product extends Component{
         }
     }
     componentDidMount(){
-        axios.get('http://localhost:4002/api/v1/product')
+        axios.get('http://54.164.86.147:8001/api/v1/product')
         .then(res => {
             this.setState({
                 products:res.data.result.result
             })
+
+            // set all products in redux
+            this.props.setProducts(this.state.products)
+
+            // reset isSeacrh to false
+            this.props.resetIsSearch()
+
       })
         .catch(err => {
           console.log(err)
@@ -27,7 +36,7 @@ class Product extends Component{
     }
 
     searchProducts(){
-        axios.get('http://localhost:4002/api/v1/product', {
+        axios.get('http://54.164.86.147:8001/api/v1/product', {
             params: {
               name: this.props.query
             }
@@ -46,6 +55,8 @@ class Product extends Component{
     render(){
         if(this.props.query && this.props.isSearching){
             this.searchProducts()
+        } else if(this.props.query === "" && this.props.isSearching){
+            this.componentDidMount()
         }
         return(
             <div className='main'>
@@ -61,13 +72,17 @@ class Product extends Component{
 
 const mapStateToProps = state => ({
     query: state.products.query,
-    isSearching: state.products.isSearching
+    isSearching: state.products.isSearching,
+    allProducts: state.products.allProducts
   })
 
 const mapDispatchToProps = (dispatch) => {
     return {
       resetIsSearch: () => {
         dispatch(resetIsSearch())
+      },
+      setProducts: (data) => {
+        dispatch(setProducts(data))
       }
     }
   }

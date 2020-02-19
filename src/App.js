@@ -7,23 +7,27 @@ import addy from './add.svg'
 import burger from './burger.svg'
 import { searchProduct } from '../src/redux/actions'
 import Product from './component/content/Product'
+import { Badge, Button } from 'reactstrap'
 
 
 class App extends Component {
     render(){
         return(
-            <div>
+            <div className='main-app'>
                <nav className='navbar'>
-                   <div className='navbar_logo'>Akal Buku</div>
-                   
+                   <ul>
+                    <li>
+                      <img src={burger} className= 'burger' alt='menu'/>
+                    </li>
+                    <li>
+                        <div className='navbar_logo'>Akal Buku</div> 
+                    </li>
+                    <li>
                        <input type='text' name='' className='search' placeholder='cari apa..' onChange={this.props.searchProduct}></input>
-                     <img src={burger} className= 'burger' alt='menu'/>
-                   
+                    </li>
+                   </ul>
                 </nav>
-               <nav className='navbar_cart'>
-                   <div className='navbar_keranjang'>cart</div>
-               </nav>
-                <div id='sidebar'>
+                <div id='left-sidebar'>
                     <div className='toggle-btn'>
                         <span></span>
                         <span></span>
@@ -37,12 +41,35 @@ class App extends Component {
                 </div>
                
                 <Product />
-            </div>
         
             
+                <div id='right-sidebar'>
+                <nav className='navbar_cart'>
+                    <div className='navbar_keranjang'>
+                        cart <Badge color="info" pill>{this.props.addedItems.length}</Badge>
+                    </div>
+                </nav>
+                <div className='cart-content'>
+                    {this.props.addedItems.map((element, index) => (
+                        <div className="added-products" key={index}>
+                            <img alt="product-item" src={element.image} style={{ height: '50px', width: '50px'}}/>
+                            <Button color="success" id='plus-cart'>+</Button>
+                            <Button color="success" id='minus-cart'>-</Button>
+                        </div>
+                    ))}
+                    <p>Total : Rp. {this.props.total}</p>
+                </div>
+                </div>
+            </div>   
         )
     }
 }
+
+const mapStateToProps = state => ({
+    addedItems: state.products.addedItems,
+    total: state.products.total
+})
+
 const mapDispatchToProps = (dispatch) => {
     return {
       searchProduct: q => {
@@ -50,4 +77,4 @@ const mapDispatchToProps = (dispatch) => {
       }
     }
   }
-export default connect(null, mapDispatchToProps)(App)
+export default connect(mapStateToProps, mapDispatchToProps)(App)

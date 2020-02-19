@@ -1,11 +1,17 @@
+.main-app{
+    position: relative;
+}
+
 .navbar{
-    position: absolute;
-    width: 890px;
+    width: auto;
     height: 100px;
-    left: 0px;
-    top: 6px;
+    margin-right: 350px;
     background: #FFFFFF;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+.navbar li{
+    list-style: none;
 }
 
 .burger{
@@ -33,15 +39,12 @@
 }
 
 .navbar_cart{
-
     position: absolute;
-    width: 465px;
-    height: 106px;
-    left: 889px;
+    width: 350px;
+    height: 100px;
+    right: 0;
     top: 0px;
-
-    background: #FFFFFF;
-    box-shadow: 0px 4px 1px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 4px 1px rgba(0, 0, 0, 0.25)
 }
 
 .navbar_keranjang{
@@ -82,15 +85,14 @@
     font-family:sans-serif;
 }
 
-#sidebar{
+#left-sidebar{
     position: absolute;
     width: 109px;
-    height: 100%;
+    height: 1550px;
     left: 0px;
-    top: 106px;
     text-align: center;
     background: #FFFFFF;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 4px 10px -1px rgba(0, 0, 0, 0.25);
     display: flex;
 }
 
@@ -116,16 +118,37 @@
     top: 180px;
   }
 
-/* #sidebar ul li{
-    color: rgb(245, 65, 41);
-    list-style: none;
-    padding:15px 10px;
-    border-bottom: 1px solid rgba(100,100,100,0.3);
-    width: 45px;
+#right-sidebar{
+    position: absolute;
+    width: 350px;
+    height: 1650px;
+    top: 0;
+    right: 0px;
     text-align: center;
-    margin-left: 10px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 10px -1px rgba(0, 0, 0, 0.25);
+    display: flex;
 }
 
-#sidebar ul{
-    margin-left: 15px;
-} */
+.cart-content{
+    position: absolute;
+    top: 5%;
+    margin: 20px;
+}
+
+
+#plus-cart{
+    margin: 10px 5px 10px 10px;
+}
+
+#minus-cart{
+    margin: 10px 10px 10px 5px;
+}
+
+.cart-content > button{
+    margin: 20px
+}
+
+.added-products{
+    margin: 10px 0px;
+}
