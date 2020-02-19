@@ -17,7 +17,7 @@ class Product extends Component{
         }
     }
     componentDidMount(){
-        axios.get('http://54.164.86.147:8001/api/v1/product')
+        axios.get('http://localhost:4002/api/v1/product')
         .then(res => {
             this.setState({
                 products:res.data.result.result
@@ -58,6 +58,9 @@ class Product extends Component{
         } else if(this.props.query === "" && this.props.isSearching){
             this.componentDidMount()
         }
+        if(this.props.isRefresh){
+          this.componentDidMount()
+        }
         return(
             <div className='main'>
                 {this.state.products.map((data, index)=>(
@@ -73,7 +76,8 @@ class Product extends Component{
 const mapStateToProps = state => ({
     query: state.products.query,
     isSearching: state.products.isSearching,
-    allProducts: state.products.allProducts
+    allProducts: state.products.allProducts,
+    isRefresh: state.products.isRefresh
   })
 
 const mapDispatchToProps = (dispatch) => {

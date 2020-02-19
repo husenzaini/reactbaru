@@ -1,11 +1,12 @@
-import { ADD_TO_CART, SEARCH_PRODUCT, RESET_IS_SEARCH, SET_PRODUCTS } from '../actionTypes'
+import { ADD_TO_CART, SEARCH_PRODUCT, RESET_IS_SEARCH, SET_PRODUCTS, SET_REFRESH } from '../actionTypes'
 
 const initialState = {
   query: '',
   allProducts: [],
   addedItems: [],
   total: 0,
-  isSearching: false
+  isSearching: false,
+  isRefresh:false
 }
 
 export default function (state = initialState, action) {
@@ -52,6 +53,11 @@ export default function (state = initialState, action) {
     return {
       ...state,
       isSearching: false
+    }
+  } else if (action.type === SET_REFRESH){
+    return{
+      ...state,
+      isRefresh: true
     }
   }
   return state

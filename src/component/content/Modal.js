@@ -3,10 +3,13 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import Box from './Box'
 import {  Form, FormGroup, Label, Input } from 'reactstrap';
 import Axios from 'axios';
+import { setIsRefresh } from '../../redux/actions';
+import {connect} from 'react-redux'
 const ModalExample = (props) => {
   const {
     className,
-    product 
+    product,
+    setIsRefresh 
   } = props;
 
   const [modal, setModal] = useState(false);
@@ -14,7 +17,7 @@ const ModalExample = (props) => {
   const [confirmDelete, setConfirmDelete] = useState(false);
 
 useEffect(()=>{
-    Axios.get('http://localhost:4002/api/v1/category')
+    Axios.get('http://54.164.86.147:8001/api/v1/category')
     .then(res => {
         console.log(res)
         setCategories(res.data.result
@@ -35,12 +38,13 @@ const handleChange = props => event => {
   setValues({...values, [props]: event.target.value});
 };
 const patchProduct = () => {
-  Axios.patch('http://localhost:4002/api/v1/product/' +product.id, values,{
+  Axios.put('http://localhost:4002/api/v1/product/' +product.id, values,{
     headers:{
       "Access-Control-Allow-Origin": "PUT"
     }
   })
   .then(res =>{
+    setIsRefresh()
     console.log(res)
   })
   .catch(err=>{
@@ -48,8 +52,9 @@ const patchProduct = () => {
   })
 }
 const deleteProduct =()=>{
-  Axios.delete('http://localhost:4002/api/v1/product/' + product.id)
+  Axios.delete('http://54.164.86.147:8001/api/v1/product/' + product.id)
   .then(res=>{
+    setIsRefresh()
     console.log(res)
   })
   .catch(err=>{
@@ -128,5 +133,10 @@ const deleteProduct =()=>{
     </div>
   );
 }
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setIsRefresh: () => { dispatch(setIsRefresh()) }
+  }
+}
 
-export default ModalExample;
+export default connect(null, mapDispatchToProps) (ModalExample);
