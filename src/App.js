@@ -15,10 +15,10 @@ class App extends Component {
             <div>
                <nav className='navbar'>
                    <div className='navbar_logo'>Akal Buku</div>
-                   <li>
+                   
                        <input type='text' name='' className='search' placeholder='cari apa..' onChange={this.props.searchProduct}></input>
                      <img src={burger} className= 'burger' alt='menu'/>
-                   </li>
+                   
                 </nav>
                <nav className='navbar_cart'>
                    <div className='navbar_keranjang'>cart</div>
@@ -30,9 +30,9 @@ class App extends Component {
                         <span></span>
                     </div>
                     <ul>
-                        <li><img src={logo} alt='menuu'/></li>
-                        <li><img src={forky} alt='menuu'/></li>
-                        <li><img src={addy} alt='menuu'/></li>
+                        <li><img src={logo} className='board' alt='menuu'/></li>
+                        <li><img src={forky} className='fork' alt='menuu'/></li>
+                        <li><img src={addy} className='add' alt='menuu'/></li>
                     </ul>
                 </div>
                

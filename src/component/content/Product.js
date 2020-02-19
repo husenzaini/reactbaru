@@ -2,9 +2,10 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux'
 import axios from 'axios'
 import './Product.css'
-import Box from './Box'
+// import Box from './Box'
 import { resetIsSearch } from '../../redux/actions'
-
+import Modal from './Modal'
+// import ModalDelet from './ModalDelet'
 
 class Product extends Component{
     constructor(props){
@@ -49,8 +50,10 @@ class Product extends Component{
         return(
             <div className='main'>
                 {this.state.products.map((data, index)=>(
-                    <Box product={data} key={index}/>
+                    <Modal product={data} key={index}/>
                 ))}
+                {/* <ModalDelet/> */}
+               
             </div>
         )
     }

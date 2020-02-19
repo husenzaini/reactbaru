@@ -8,6 +8,9 @@ import {BrowserRouter as Router, Route} from 'react-router-dom';
 // import Product from './component/content/Product'
 import store from './redux/store'
 import Login from './component/content/Login'
+import Register from './component/content/Register'
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 const AppWithRouter = () => (
   <Provider store={store}>
@@ -15,6 +18,7 @@ const AppWithRouter = () => (
       <Route path="/" exact component={App} /> {/* localhost:3000/ */}
       {/* <Route path="/product" component={Product} />  */}
       <Route path="/login" component={Login} />
+      <Route path="/register" component={Register} />
     </Router>
   </Provider>
   );
