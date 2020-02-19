@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import axios from 'axios'
 import './Product.css'
 import Box from './Box'
-import { resetIsSearch } from '../../redux/actions'
+import { resetIsSearch, setProducts } from '../../redux/actions'
 
 
 class Product extends Component{
@@ -20,6 +20,10 @@ class Product extends Component{
                 products:res.data.result.result
             })
 
+            // set all products in redux
+            this.props.setProducts(this.state.products)
+
+            // reset isSeacrh to false
             this.props.resetIsSearch()
 
       })
@@ -63,13 +67,17 @@ class Product extends Component{
 
 const mapStateToProps = state => ({
     query: state.products.query,
-    isSearching: state.products.isSearching
+    isSearching: state.products.isSearching,
+    allProducts: state.products.allProducts
   })
 
 const mapDispatchToProps = (dispatch) => {
     return {
       resetIsSearch: () => {
         dispatch(resetIsSearch())
+      },
+      setProducts: (data) => {
+        dispatch(setProducts(data))
       }
     }
   }

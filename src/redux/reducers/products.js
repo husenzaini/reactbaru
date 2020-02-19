@@ -1,8 +1,10 @@
-import { ADD_TO_CART, SEARCH_PRODUCT, RESET_IS_SEARCH } from '../actionTypes'
+import { ADD_TO_CART, SEARCH_PRODUCT, RESET_IS_SEARCH, SET_PRODUCTS } from '../actionTypes'
 
 const initialState = {
   query: '',
+  allProducts: [],
   addedItems: [],
+  total: 0,
   isSearching: false
 }
 
@@ -16,9 +18,11 @@ export default function (state = initialState, action) {
     const existedItem = state.addedItems.find(item => item.id === id)
     if (existedItem) {
       addedItem.quantity += 1
+      const newAddedItems = state.addedItems.filter(item => item.id !== existedItem.id)
       return {
         ...state,
-        total: state.total + addedItem.price
+        addedItems: newAddedItems
+        // total: state.total + addedItem.price
       }
     } else {
       addedItem.quantity = 1
@@ -37,6 +41,12 @@ export default function (state = initialState, action) {
       ...state,
       isSearching: true,
       query: query
+    }
+  } else if (action.type === SET_PRODUCTS){
+    const { products } = action.payload
+    return {
+      ...state,
+      allProducts: products
     }
   } else if (action.type === RESET_IS_SEARCH) {
     return {

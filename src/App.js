@@ -6,7 +6,7 @@ import forky from './fork.svg'
 import addy from './add.svg'
 import burger from './burger.svg'
 import { searchProduct } from '../src/redux/actions'
-
+import { Badge } from 'reactstrap'
 
 
 class App extends Component {
@@ -40,7 +40,9 @@ class App extends Component {
                 </div>
                 <div id='right-sidebar'>
                 <nav className='navbar_cart'>
-                    <div className='navbar_keranjang'>cart</div>
+                    <div className='navbar_keranjang'>
+                        cart <Badge color="info" pill>{this.props.addedItems.length}</Badge>
+                    </div>
                 </nav>
                 </div>
                
@@ -51,6 +53,12 @@ class App extends Component {
         )
     }
 }
+
+const mapStateToProps = state => ({
+    addedItems: state.products.addedItems,
+    total: state.products.total
+})
+
 const mapDispatchToProps = (dispatch) => {
     return {
       searchProduct: q => {
@@ -58,4 +66,4 @@ const mapDispatchToProps = (dispatch) => {
       }
     }
   }
-export default connect(null, mapDispatchToProps)(App)
+export default connect(mapStateToProps, mapDispatchToProps)(App)

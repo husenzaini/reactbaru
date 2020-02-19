@@ -7,6 +7,7 @@ import * as serviceWorker from './serviceWorker';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 import Product from './component/content/Product'
 import store from './redux/store'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 const AppWithRouter = () => (

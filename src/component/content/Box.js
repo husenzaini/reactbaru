@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import { connect } from 'react-redux'
+import { addToCart } from '../../redux/actions'
 import './Box.css'
 
 class Box extends Component{
@@ -13,6 +15,8 @@ class Box extends Component{
         this.setState({
             isClicked: !this.state.isClicked
         })
+
+        this.props.addToCart(this.props.product.id)
     }
    
     render(){
@@ -27,4 +31,11 @@ class Box extends Component{
     }
 }
 
-export default Box
+const mapDispatchToProps = (dispatch) => {
+    return {
+      addToCart: (id) => { dispatch(addToCart(id)) }
+    }
+}
+  
+  
+export default connect(null, mapDispatchToProps)(Box)
