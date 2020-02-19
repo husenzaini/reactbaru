@@ -53,9 +53,9 @@ class App extends Component {
                     {this.props.addedItems.map((element, index) => (
                         <div className="added-products" key={index}>
                             <img alt="product-item" src={element.image} style={{ height: '50px', width: '50px'}}/>
-                            <Button color="success" id='plus-cart' onClick={() => this.props.editQty(element.id, true)}>+</Button>
-                            {element.quantity}
                             <Button color="success" id='minus-cart' onClick={() => this.props.editQty(element.id, false)}>-</Button>
+                            {element.quantity}
+                            <Button color="success" id='plus-cart' onClick={() => this.props.editQty(element.id, true)}>+</Button>
                             {element.quantity * element.price}
                         </div>
                     ))}

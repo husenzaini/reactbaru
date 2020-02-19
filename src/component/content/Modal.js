@@ -17,7 +17,7 @@ const ModalExample = (props) => {
   const [confirmDelete, setConfirmDelete] = useState(false);
 
 useEffect(()=>{
-    Axios.get('http://54.164.86.147:8001/api/v1/category')
+    Axios.get('http://localhost:4002/api/v1/category')
     .then(res => {
         setCategories(res.data.result
         )
@@ -50,7 +50,7 @@ const patchProduct = () => {
   })
 }
 const deleteProduct =()=>{
-  Axios.delete('http://54.164.86.147:8001/api/v1/product/' + product.id)
+  Axios.delete('http://localhost:4002/api/v1/product/' + product.id)
   .then(res=>{
     setIsRefresh()
   })
