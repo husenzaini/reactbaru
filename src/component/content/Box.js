@@ -28,11 +28,9 @@ class Box extends Component{
                 <p className='boxmini'>{this.props.product.name}</p>
                 <b className='boxharga'>Rp. {this.props.product.price}</b>
                 <div className='tombol'>
-            <div>
-            <button className='btn_btn1' onClick={this.props.isOpen}>Edit</button>
-            <button className='btn_btn2' onClick={this.props.clickConfirmDelete}>Delete</button>
-            </div>
-        </div>
+                    <button className='btn_btn1' onClick={this.props.isOpen}>Edit</button>
+                    <button className='btn_btn2' onClick={this.props.clickConfirmDelete}>Delete</button>
+                </div>
             </div>
         )
     }
