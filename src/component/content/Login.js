@@ -28,7 +28,7 @@ class Login extends Component{
         let data = this.state.user
         axios.post('http://54.164.86.147:8001/api/v1/user/login', data)
             .then(res => {
-                if(res.data.status_code !== 200){
+                if(res.data.status_code !== 201){
                     this.setState({
                         msg: res.data.err,
                         show: true
@@ -43,6 +43,12 @@ class Login extends Component{
                 console.log("err ", err)
             })
     }
+
+    handleClose = () => {
+        this.setState({
+            show: false
+        })
+    }
    
     render(){
         if(!localStorage.getItem('Token')){
@@ -51,7 +57,7 @@ class Login extends Component{
                     <div className='login_box'>
                     <h1>Login</h1>
                     <div>
-                        <Alert color="warning" isOpen={this.state.show} onClose={this.handleClose}>{this.state.msg}</Alert>
+                        <Alert color="warning" isOpen={this.state.show} toggle={this.handleClose}>{this.state.msg}</Alert>
                     </div>
                     <div className='textbox'>
                         <input type='text' placeholder='Username' name='user_name' onChange={this.handleChange}></input>
