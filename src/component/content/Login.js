@@ -26,7 +26,7 @@ class Login extends Component{
 
     handleLogin = () => {
         let data = this.state.user
-        axios.post('http://54.164.86.147:8001/api/v1/user/login', data)
+        axios.post('http://ec2-54-159-180-139.compute-1.amazonaws.com/api/v1/user/login', data)
             .then(res => {
                 if(res.data.status_code !== 201){
                     this.setState({
