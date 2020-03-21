@@ -12,8 +12,7 @@ export const searchProduct = (query) => ({
   payload: {
     query
   }
-}
-)
+})
 export const setProducts = (products) => ({
   type: SET_PRODUCTS,
   payload: {

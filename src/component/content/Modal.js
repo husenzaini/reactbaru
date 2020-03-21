@@ -17,7 +17,7 @@ const ModalExample = (props) => {
   const [confirmDelete, setConfirmDelete] = useState(false);
 
 useEffect(()=>{
-    Axios.get('http://localhost:4002/api/v1/category')
+    Axios.get('http://ec2-54-159-180-139.compute-1.amazonaws.com/api/v1/category')
     .then(res => {
         setCategories(res.data.result
         )
@@ -37,7 +37,7 @@ const handleChange = props => event => {
   setValues({...values, [props]: event.target.value});
 };
 const patchProduct = () => {
-  Axios.put('http://54.164.86.147:8001/api/v1/product/' +product.id, values,{
+  Axios.put('http://ec2-54-159-180-139.compute-1.amazonaws.com/api/v1/product/' +product.id, values,{
     headers:{
       "Access-Control-Allow-Origin": "PUT"
     }
@@ -50,7 +50,7 @@ const patchProduct = () => {
   })
 }
 const deleteProduct =()=>{
-  Axios.delete('http://localhost:4002/api/v1/product/' + product.id)
+  Axios.delete('http://ec2-54-159-180-139.compute-1.amazonaws.com/api/v1/product/' + product.id)
   .then(res=>{
     setIsRefresh()
   })

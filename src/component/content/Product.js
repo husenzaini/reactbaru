@@ -17,7 +17,7 @@ class Product extends Component{
         }
     }
     componentDidMount(){
-        axios.get('http://54.164.86.147:8001/api/v1/product')
+        axios.get('http://ec2-54-159-180-139.compute-1.amazonaws.com/api/v1/product')
         .then(res => {
             this.setState({
                 products:res.data.result.result
@@ -36,7 +36,7 @@ class Product extends Component{
     }
 
     searchProducts(){
-        axios.get('http://54.164.86.147:8001/api/v1/product', {
+        axios.get('http://ec2-54-159-180-139.compute-1.amazonaws.com/api/v1/product', {
             params: {
               name: this.props.query
             }
