@@ -7,10 +7,29 @@ import addy from './add.svg'
 import burger from './burger.svg'
 import { searchProduct, editQty } from '../src/redux/actions'
 import Product from './component/content/Product'
+import AddProduct from '../src/component/content/AddProduct'
 import { Badge, Button } from 'reactstrap'
 
 
 class App extends Component {
+    constructor(props){
+        super(props)
+        this.state = {
+            modal: false
+        }
+    }
+    
+    handleClickOpen () {
+      this.setState({
+        modal: true
+      });
+    };
+    
+    handleClose (){
+      this.setState({
+        modal: false
+      });
+    };
     render(){
         return(
             <div className='main-app'>
@@ -36,27 +55,28 @@ class App extends Component {
                     <ul>
                         <li><img src={logo} className='board' alt='menuu'/></li>
                         <li><img src={forky} className='fork' alt='menuu'/></li>
-                        <li><img src={addy} className='add' alt='menuu'/></li>
+                        <li><img src={addy} className='add' alt='menuu' onClick={() => this.handleClickOpen()}/></li>
+                        <AddProduct handleClickOpen={() => this.handleClickOpen()} handleClose={() => this.handleClose()} modal={this.state.modal}/>
                     </ul>
                 </div>
                 <Product />
                 <div id='right-sidebar'>
-                <nav className='navbar_cart'>
+                    <nav className='navbar_cart'>
                     <div className='navbar_keranjang'>
                         cart <Badge color="info" pill>{this.props.addedItems.length}</Badge>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </div>
                 </nav>
-                <div className='cart-content'>
-                    {this.props.addedItems.map((element, index) => (
-                        <div className="added-products" key={index}>
+                    <div className='cart-content'>
+                        {this.props.addedItems.map((element, index) => (
+                            <div className="added-products" key={index}>
                             <img alt="product-item" src={element.image} style={{ height: '50px', width: '50px'}}/>
                             <Button color="success" id='minus-cart' onClick={() => this.props.editQty(element.id, false)}>-</Button>
                             {element.quantity}
                             <Button color="success" id='plus-cart' onClick={() => this.props.editQty(element.id, true)}>+</Button>
                             Rp. {element.quantity * element.price}
                         </div>
-                    ))}
-                    <p>Total : Rp. {this.props.total}</p>
-                </div>
+                        ))}
+                        <p>Total : Rp. {this.props.total}</p>
+                    </div>
                 </div>
             </div>   
         )
