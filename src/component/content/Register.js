@@ -2,9 +2,23 @@ import React, {Component} from 'react';
 import './Register.css'
 
 class Register extends Component{
-    // constructor(props){
-    //     super(props)
-    // }
+    state={
+        user:{
+            name:'',
+            username:'',
+            password:''
+        },
+        msg:'',
+        isRegister:false,
+        show:false
+    }
+    handleChange = (e) =>{
+        let newUser = {...this.state.user};
+        newUser[e.target.name] = e.target.value;
+        this.setState({
+            user: newUser
+        })
+    }
    
     render(){
         return(

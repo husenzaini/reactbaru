@@ -76,7 +76,7 @@ const deleteProduct =()=>{
   }
 
   return (
-    <div>
+      <>
         <Box product={product} isOpen={handleClickOpen} clickConfirmDelete={handleClickOpenConfirmDelete}/>
       <Modal isOpen={modal} toggle={handleClickOpen} className={className}>
         <ModalHeader toggle={handleClose}>Edit Product</ModalHeader>
@@ -127,7 +127,7 @@ const deleteProduct =()=>{
           <Button color="secondary" onClick={handleCloseConfirmDelete}>Cancel</Button>
         </ModalFooter>
       </Modal>
-    </div>
+      </>
   );
 }
 const mapDispatchToProps = (dispatch) => {
